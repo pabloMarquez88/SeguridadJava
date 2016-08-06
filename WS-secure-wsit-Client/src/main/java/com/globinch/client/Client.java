@@ -21,7 +21,7 @@ import com.globinch.service.MyWebService;
 public class Client {
 	private static URL url = null;
 	private static Service service = null;
-	private static final String PATH = "D:\\mtomtest\\download\\";
+	private static final String PATH = "D:\\archivos\\";
 	
 	public Client() {
 		try {
@@ -41,7 +41,7 @@ public class Client {
 	public String uploadImage() {
 		try {
 			MyWebService myService = service.getPort(MyWebService.class);
-			File file = new File(PATH + "11841.jpg");
+			File file = new File(PATH + "archivo01.jpg");
 			BufferedImage imageToUpload = null;
 			try {
 				imageToUpload = ImageIO.read(file);
@@ -80,7 +80,7 @@ public class Client {
 			MyWebService myService = service.getPort(MyWebService.class);
 			// lets now download the uploaded image
 			byte[] downloadedImage = myService
-					.retrieveImage("ImageFromClient" + imageName + ".jpg");
+					.retrieveImage(imageName + ".jpg");
 			File imageFromServer = new File(PATH + "ImageFromServer" + imageName
 					+ ".jpg");
 			try {
