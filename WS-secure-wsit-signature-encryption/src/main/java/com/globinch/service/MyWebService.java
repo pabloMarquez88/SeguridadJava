@@ -23,7 +23,7 @@ import javax.xml.ws.WebServiceException;
  */
 @WebService()
 public class MyWebService implements MyWebServiceIntf {
-	 final static String PATH = "D:\\mtomtest\\upload\\";
+	 final static String PATH = "D:\\archivos\\";
 
     /* (non-Javadoc)
 	 * @see com.globinch.service.MyWebServiceIntf#greetCustomer(java.lang.String)
