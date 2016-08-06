@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="MyWebServiceService"
+	targetNamespace="http://com.globinch.service/" xmlns:tns="http://com.globinch.service/"
+	xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:wsaws="http://www.w3.org/2005/08/addressing" xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy"
+	xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+	<message name="uploadImage">
+		<part name="parameters" element="tns:uploadImage" />
+	</message>
+	<message name="uploadImageResponse">
+		<part name="parameters" element="tns:uploadImageResponse" />
+	</message>
+	<message name="greetCustomer">
+		<part name="parameters" element="tns:greetCustomer" />
+	</message>
+	<message name="greetCustomerResponse">
+		<part name="parameters" element="tns:greetCustomerResponse" />
+	</message>
+	<message name="retrieveImage">
+		<part name="parameters" element="tns:retrieveImage" />
+	</message>
+	<message name="retrieveImageResponse">
+		<part name="parameters" element="tns:retrieveImageResponse" />
+	</message>
+	<portType name="MyWebService">
+		<operation name="uploadImage">
+			<input wsam:Action="http://service.globinch.com/MyWebService/uploadImageRequest"
+				message="tns:uploadImage" />
+			<output
+				wsam:Action="http://service.globinch.com/MyWebService/uploadImageResponse"
+				message="tns:uploadImageResponse" />
+		</operation>
+		<operation name="greetCustomer">
+			<input
+				wsam:Action="http://service.globinch.com/MyWebService/greetCustomerRequest"
+				message="tns:greetCustomer" />
+			<output
+				wsam:Action="http://service.globinch.com/MyWebService/greetCustomerResponse"
+				message="tns:greetCustomerResponse" />
+		</operation>
+		<operation name="retrieveImage">
+			<input
+				wsam:Action="http://service.globinch.com/MyWebService/retrieveImageRequest"
+				message="tns:retrieveImage" />
+			<output
+				wsam:Action="http://service.globinch.com/MyWebService/retrieveImageResponse"
+				message="tns:retrieveImageResponse" />
+		</operation>
+	</portType>
+	<binding name="MyWebServicePortBinding" type="tns:MyWebService">
+		<wsp1_2:PolicyReference URI="#MyWebServicePortBindingPolicy" />
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<operation name="uploadImage">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="greetCustomer">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="retrieveImage">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="MyWebServiceService">
+	<port name="MyWebServicePort" binding="tns:MyWebServicePortBinding" />
+	</service>
+	<wsp1_2:Policy wsu:Id="MyWebServicePortBindingPolicy" xmlns:wsu=
+     "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+     xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <wsp:ExactlyOne>
+      <wsp1_2:All>
+        <sp:AsymmetricBinding
+            xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+          <wsp1_2:Policy>
+            <sp:InitiatorToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:WssX509V3Token10/>
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:InitiatorToken>
+            <sp:RecipientToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToInitiator">
+                  <wsp1_2:Policy>
+                    <sp:WssX509V3Token10/>
+                  </wsp1_2:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:RecipientToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:TripleDesRsa15/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp/>
+            <sp:OnlySignEntireHeadersAndBody/>
+          </wsp1_2:Policy>
+        </sp:AsymmetricBinding>
+        <sp:SignedParts
+            xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+          <sp:Body/>
+        </sp:SignedParts>
+        <sp:EncryptedParts
+            xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+          <sp:Body/>
+        </sp:EncryptedParts>
+        <wsss:KeyStore alias="certificatekey" 
+          keypass="pablo1"
+          location="D:/IDEs/WORKSPACE/SeguridadJava/WS-secure-wsit-signature-encryption/src/main/resources/certificados/Server/keystoreServer.jks" storepass="pablo1"
+          xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy" wspp:visibility="private"
+          xmlns:wsss="http://schemas.sun.com/2006/03/wss/server"/>
+      <wsss:TrustStore location="D:/IDEs/WORKSPACE/SeguridadJava/WS-secure-wsit-signature-encryption/src/main/resources/certificados/Cliente/cliente.truststore" storepass="pablo2"
+          xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy" wspp:visibility="private"
+          xmlns:wsss="http://schemas.sun.com/2006/03/wss/server"  />
+      </wsp1_2:All>
+    </wsp:ExactlyOne>
+  </wsp1_2:Policy>
+</definitions>

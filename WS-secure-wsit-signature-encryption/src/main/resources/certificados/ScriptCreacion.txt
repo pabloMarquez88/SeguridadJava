@@ -1,0 +1,25 @@
+SERVIDOR (todas las pass son pablo1)
+
+keytool -genkey -alias certificatekey -keyalg RSA -validity 180 -keystore keystoreServer.jks
+
+keytool -export -alias certificatekey -keystore keystore.jks -rfc -file publicServidor.cert
+
+keytool -import -alias certificatekey -file publicServidor.cert -keystore server.truststore
+
+keytool -v -importkeystore -srckeystore keystoreServer.jks -srcalias certificatekey -destkeystore myp12file.p12 -deststoretype PKCS12
+
+openssl pkcs12 -in myp12file.p12 -out private.pem
+
+
+
+CLIENTE (todas las pass son pablo2)
+
+keytool -genkey -alias certificatekeyCliente -keyalg RSA -validity 180 -keystore keystoreCliente.jks
+
+keytool -export -alias certificatekeyCliente -keystore keystoreCliente.jks -rfc -file publicCliente.cert
+
+keytool -import -alias certificatekeyCliente -file publicCliente.cert -keystore cliente.truststore
+
+keytool -v -importkeystore -srckeystore keystoreCliente.jks -srcalias certificatekeyCliente -destkeystore myp12file.p12 -deststoretype PKCS12
+
+openssl pkcs12 -in myp12file.p12 -out privateCliente.pem

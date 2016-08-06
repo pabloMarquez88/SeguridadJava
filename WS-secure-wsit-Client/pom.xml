@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ar.com.proyectos</groupId>
-	<artifactId>WS-secure-wsit-signature-encryption</artifactId>
-	<packaging>war</packaging>
+	<artifactId>WS-secure-wsit-Client</artifactId>
+	<packaging>jar</packaging>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>WS-secure-wsit-signature-encryption</name>
+	<name>WS-secure-wsit-Client</name>
 	<url>http://maven.apache.org</url>
 
 
@@ -50,7 +50,7 @@
 
 
 	<build>
-		<finalName>WS-secure-wsit-signature-encryption</finalName>
+		<finalName>WS-secure-wsit</finalName>
 
 
 		<plugins>

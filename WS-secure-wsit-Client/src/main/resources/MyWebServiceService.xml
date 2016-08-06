@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://service.globinch.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://service.globinch.com/"
+	xmlns:sc="http://schemas.sun.com/2006/03/wss/client"
+	xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy"
+	name="MyWebServiceService">
+	<wsp:Policy
+		wsu:Id="MyWebServicePortBinding_MTOM_Policy-MyWebServicePortBinding_MTOM_Policy">
+		<ns1:OptimizedMimeSerialization
+			xmlns:ns1="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization"
+			wsp:Optional="true" />
+	</wsp:Policy>
+<wsp1_2:Policy wsu:Id="MyWebServicePortBindingPolicy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+          <sc:CallbackHandlerConfiguration wspp:visibility="private">
+          <sc:CallbackHandler classname="com.globinch.client.MyCallbackHandler" name="usernameHandler"/>
+          <sc:CallbackHandler classname="com.globinch.client.MyCallbackHandler" name="passwordHandler"/>
+        </sc:CallbackHandlerConfiguration>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp1_2:Policy>
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://service.globinch.com/"
+				schemaLocation="http://localhost:8080/MyService/?xsd=1" />
+		</xsd:schema>
+	</types>
+	<message name="uploadImage">
+		<part name="parameters" element="tns:uploadImage" />
+	</message>
+	<message name="uploadImageResponse">
+		<part name="parameters" element="tns:uploadImageResponse" />
+	</message>
+	<message name="greetCustomer">
+		<part name="parameters" element="tns:greetCustomer" />
+	</message>
+	<message name="greetCustomerResponse">
+		<part name="parameters" element="tns:greetCustomerResponse" />
+	</message>
+	<message name="retrieveImage">
+		<part name="parameters" element="tns:retrieveImage" />
+	</message>
+	<message name="retrieveImageResponse">
+		<part name="parameters" element="tns:retrieveImageResponse" />
+	</message>
+	<portType name="MyWebService">
+		<operation name="uploadImage">
+			<input wsam:Action="http://service.globinch.com/MyWebService/uploadImageRequest"
+				message="tns:uploadImage" />
+			<output
+				wsam:Action="http://service.globinch.com/MyWebService/uploadImageResponse"
+				message="tns:uploadImageResponse" />
+		</operation>
+		<operation name="greetCustomer">
+			<input
+				wsam:Action="http://service.globinch.com/MyWebService/greetCustomerRequest"
+				message="tns:greetCustomer" />
+			<output
+				wsam:Action="http://service.globinch.com/MyWebService/greetCustomerResponse"
+				message="tns:greetCustomerResponse" />
+		</operation>
+		<operation name="retrieveImage">
+			<input
+				wsam:Action="http://service.globinch.com/MyWebService/retrieveImageRequest"
+				message="tns:retrieveImage" />
+			<output
+				wsam:Action="http://service.globinch.com/MyWebService/retrieveImageResponse"
+				message="tns:retrieveImageResponse" />
+		</operation>
+	</portType>
+	<binding name="MyWebServicePortBinding" type="tns:MyWebService">
+		<wsp:PolicyReference
+			URI="#MyWebServicePortBinding_MTOM_Policy-MyWebServicePortBinding_MTOM_Policy" />
+		<wsp1_2:PolicyReference URI="#MyWebServicePortBindingPolicy" />
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<operation name="uploadImage">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="greetCustomer">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="retrieveImage">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="MyWebServiceService">
+		<port name="MyWebServicePort" binding="tns:MyWebServicePortBinding">
+			<soap:address location="http://localhost:8080/MyService/" />
+		</port>
+	</service>
+</definitions>

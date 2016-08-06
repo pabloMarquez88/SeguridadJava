@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ The jax-ws xml configuration file for tomcat servlet container.
+ www.Globinch.com
+ -->
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+    <endpoint name="MyWebService"
+        implementation="com.globinch.service.MyWebService" 
+        url-pattern="/"
+        wsdl-location="" enable-mtom="true">
+    </endpoint>
+
+</endpoints>
