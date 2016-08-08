@@ -59,10 +59,10 @@
           <sp:Body/>
         </sp:EncryptedParts>
       <sc:KeyStore wspp:visibility="private" 
-      location="D:/IDEs/WORKSPACE/SeguridadJava/WS-secure-wsit-signature-encryption/src/main/resources/certificados/Cliente/keystoreCliente.jks"
+      location="C:/certificados/Cliente/keystoreCliente.jks"
             storepass="pablo2" alias="certificatekeyCliente" keypass="pablo2"/>
         <sc:TrustStore wspp:visibility="private" 
-        location="D:/IDEs/WORKSPACE/SeguridadJava/WS-secure-wsit-signature-encryption/src/main/resources/certificados/Server/server.truststore"
+        location="C:/certificados/Server/server.truststore"
             storepass="pablo1" peeralias="certificatekey"/>
       </wsp1_2:All>
     </wsp:ExactlyOne>

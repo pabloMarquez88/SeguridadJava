@@ -136,10 +136,10 @@
         </sp:EncryptedParts>
         <wsss:KeyStore alias="certificatekey" 
           keypass="pablo1"
-          location="D:/IDEs/WORKSPACE/SeguridadJava/WS-secure-wsit-signature-encryption/src/main/resources/certificados/Server/keystoreServer.jks" storepass="pablo1"
+          location="C:/certificados/Server/keystoreServer.jks" storepass="pablo1"
           xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy" wspp:visibility="private"
           xmlns:wsss="http://schemas.sun.com/2006/03/wss/server"/>
-      <wsss:TrustStore location="D:/IDEs/WORKSPACE/SeguridadJava/WS-secure-wsit-signature-encryption/src/main/resources/certificados/Cliente/cliente.truststore" storepass="pablo2"
+      <wsss:TrustStore location="C:/certificados/Cliente/cliente.truststore" storepass="pablo2"
           xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy" wspp:visibility="private"
           xmlns:wsss="http://schemas.sun.com/2006/03/wss/server"  />
       </wsp1_2:All>

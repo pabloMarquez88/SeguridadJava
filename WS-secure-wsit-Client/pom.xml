@@ -50,7 +50,7 @@
 
 
 	<build>
-		<finalName>WS-secure-wsit</finalName>
+		<finalName>WS-secure-wsit-Client</finalName>
 
 
 		<plugins>
