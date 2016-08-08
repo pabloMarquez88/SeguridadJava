@@ -26,7 +26,7 @@ public class Client {
 	
 	public Client() {
 		try {
-			url = new URL("http://localhost:8080/WS-secure-wsit/?wsdl");
+			url = new URL("http://localhost:8080/WS-secure-wsit-signature-encryption/?wsdl");
 			QName qname = new QName("http://service.globinch.com/",
 					"MyWebServiceService");
 			service = Service.create(url, qname);
