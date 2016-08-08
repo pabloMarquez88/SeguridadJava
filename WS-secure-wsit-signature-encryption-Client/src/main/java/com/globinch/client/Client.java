@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
+import com.globinch.service.Auto;
 import com.globinch.service.MyWebService;
 /**
  * The web service client service invoker class.
@@ -109,6 +110,24 @@ public class Client {
 		try {
 			MyWebService myService = service.getPort(MyWebService.class);
 			String message = myService.greetCustomer(name);
+			System.out.println(message);
+			return message;
+
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+		return "empty string";
+	}
+	
+	/**
+	 * llamarAuto
+	 * @param name
+	 * @return String
+	 */
+	public String llamarAuto(Auto auto) {
+		try {
+			MyWebService myService = service.getPort(MyWebService.class);
+			String message = myService.llamarAuto(auto);
 			System.out.println(message);
 			return message;
 

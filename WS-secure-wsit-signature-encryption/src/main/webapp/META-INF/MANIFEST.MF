@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-Class-Path: 
+Class-Path: webservices-rt-2.1-b16.jar webservices-api-2.1-b16.jar sta
+ x-api-1.0-2.jar jsr250-api-1.0.jar
 

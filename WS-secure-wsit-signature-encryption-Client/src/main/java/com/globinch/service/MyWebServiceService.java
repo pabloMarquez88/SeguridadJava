@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "MyWebServiceService", targetNamespace = "http://service.globinch.com/", wsdlLocation = "http://localhost:8080/WS-secure-wsit/?wsdl")
+@WebServiceClient(name = "MyWebServiceService", targetNamespace = "http://service.globinch.com/", wsdlLocation = "http://localhost:8080/WS-secure-wsit-signature-encryption/?wsdl")
 public class MyWebServiceService
     extends Service
 {
@@ -30,7 +30,7 @@ public class MyWebServiceService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:8080/WS-secure-wsit/?wsdl");
+            url = new URL("http://localhost:8080/WS-secure-wsit-signature-encryption/?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

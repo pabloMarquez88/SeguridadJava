@@ -72,4 +72,19 @@ public interface MyWebService {
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
 
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "llamarAuto", targetNamespace = "http://service.globinch.com/", className = "com.globinch.service.LlamarAuto")
+    @ResponseWrapper(localName = "llamarAutoResponse", targetNamespace = "http://service.globinch.com/", className = "com.globinch.service.LlamarAutoResponse")
+    @Action(input = "http://service.globinch.com/MyWebService/llamarAutoRequest", output = "http://service.globinch.com/MyWebService/llamarAutoResponse")
+    public String llamarAuto(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Auto arg0);
+
 }

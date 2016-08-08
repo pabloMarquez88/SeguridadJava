@@ -33,5 +33,8 @@ public interface MyWebServiceIntf {
 	@WebMethod(operationName = "uploadImage")
 	public String uploadImage(@WebParam(name = "file") Image file,
 			@WebParam(name = "name") String name);
+	
+	@WebMethod(operationName = "llamarAuto")
+	public String llamarAuto(@WebParam(name = "auto") Auto auto);
 
 }

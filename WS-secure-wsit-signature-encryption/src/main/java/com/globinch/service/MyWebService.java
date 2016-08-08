@@ -64,4 +64,8 @@ public class MyWebService implements MyWebServiceIntf {
 		}
 		throw new WebServiceException("No data to upload.");
 	}
+	@Override
+	public String llamarAuto(Auto auto) {
+		return auto.toString();
+	}
   }

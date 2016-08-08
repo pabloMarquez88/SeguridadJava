@@ -85,6 +85,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<archiveClasses>false</archiveClasses>
+		<m2eclipse.wtp.contextRoot>WS-secure-wsit-signature-encryption
+		</m2eclipse.wtp.contextRoot>
 	</properties>
 
 
